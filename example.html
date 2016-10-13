@@ -1,0 +1,39 @@
+<title>Conways Game of Life</title>
+<style>
+canvas {
+  image-rendering: optimizeSpeed;             
+  image-rendering: -moz-crisp-edges;          
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: -o-crisp-edges;
+  image-rendering: pixelated;
+  -ms-interpolation-mode: nearest-neighbor;
+}
+#conway-canvas {
+    width:50%;
+}
+</style>
+<script src="./lib/conway/utils/func.js"></script>
+<script src="./lib/conway/utils/string.js"></script>
+<script src="./lib/conway/struct/shapeDescriptor.js"></script>
+<script src="./lib/conway/struct/matrix.js"></script>
+<script src="./lib/conway/struct/zeroMatrix.js"></script>
+<script src="./lib/conway/struct/sparseMatrix.js"></script>
+<script src="./lib/conway/struct/quadTree.js"></script>
+<script src="./lib/conway/utils/patterns.js"></script>
+<script src="./lib/conway/display/updatableCanvas.js"></script>
+<script src="./lib/conwayEngine.js"></script>
+<script>
+window.onload = function() {
+
+    var testMatrix = MatrixPatterns.gosperGun();
+    var engine = new ConwayEngine(new QuadTree(testMatrix));
+    var updatableCanvas = new UpdatableCanvas(document.body, "conway-canvas", testMatrix.shape().width, testMatrix.shape().height);
+    engine.step();
+
+    var animator = window.setInterval(function() {
+        engine.step();
+        updatableCanvas.batchSetPixelBlack(engine.aliveCoords());
+    }, 50);
+
+}
+</script>
