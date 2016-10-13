@@ -38,7 +38,7 @@ To see an example of how Conway-Hash can be used in the browser, look at `./exam
 
 ## CLI usage
 
-Conway  
+see `cli.js` for usage.
 
 ## Support
 
