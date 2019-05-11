@@ -1,4 +1,4 @@
-#Conway-Hash JS
+# Conway-Hash JS
 
 Conway-Hash JS is an implementation of of [Conway's game of life](https://en.wikipedia.org/wiki/Conway%27s_Game_of_Life) utilizing Bill Gosper's [Hash Life](https://en.wikipedia.org/wiki/Hashlife) algorithm.
 
